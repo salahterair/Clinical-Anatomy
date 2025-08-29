@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>For Batch 28 & 30 — Clinical Anatomy  (Abdomen · Pelvis .Thorax)</title>
+<style>
+  :root{
+    /* UMST/EasyLearn inspired palette */
+    --bg:#0f172a;        /* slate-900 */
+    --card:#0b1020;      /* deep navy */
+    --ink:#e5e7eb;       /* slate-200 */
+    --muted:#9ca3af;     /* gray-400 */
+    --line:#1f2937;      /* slate-800 */
+    --brand:#d91f26;     /* UMST red */
+    --brand-2:#2563eb;   /* EasyLearn blue */
+    --accent:#22c55e;    /* green accent */
+    --accent-ink:#0b1220;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f7fafc; --card:#ffffff; --ink:#0b1220; --muted:#475569; --line:#e5e7eb;
+      --brand:#cc1122; --brand-2:#1d4ed8; --accent:#16a34a; --accent-ink:#ffffff;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:radial-gradient(1200px 800px at 10% -10%, rgba(37,99,235,.15), transparent 60%), linear-gradient(135deg,#0b1226,#0f172a); color:var(--ink); font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;}
+  .wrap{max-width:1100px;margin:0 auto;padding:22px}
+  header.hero{
+    display:flex; gap:16px; align-items:center; flex-wrap:wrap;
+    background:linear-gradient(135deg, rgba(217,31,38,.15), rgba(37,99,235,.15));
+    border:1px solid var(--line); border-radius:20px; padding:18px 18px;
+    box-shadow:0 8px 30px rgba(0,0,0,.2);
+  }
+  .logo{
+    width:64px;height:64px;border-radius:14px;background:conic-gradient(from 180deg, var(--brand), var(--brand-2));display:grid;place-items:center;
+    color:white;font-weight:800;letter-spacing:.5px;
+    box-shadow:inset 0 0 20px rgba(255,255,255,.15);
+  }
+  .brand h1{margin:0;font-size:clamp(20px,4vw,30px);font-weight:800}
+  .brand p{margin:4px 0 0;color:var(--muted)}
+  .tagline{color:#a7f3d0;font-weight:700} /* mint-ish */
+  .controls{
+    display:flex;flex-wrap:wrap;gap:10px;margin-left:auto
+  }
+  select, button{
+    border:1px solid var(--line); background:var(--card); color:var(--ink);
+    padding:10px 12px; border-radius:12px; font-size:14px;
+  }
+  button{cursor:pointer}
+  .btn-primary{background:var(--accent); color:var(--accent-ink); border-color:transparent}
+  .btn-ghost{background:transparent}
+  .grid{display:grid; grid-template-columns:1fr; gap:14px; align-items:center; margin-top:14px}
+  .stats{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14px}
+  .bar{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+  .bar>span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--brand-2),var(--accent));}
+  .card{ perspective:1200px; height:380px; position:relative; }
+  .card-inner{ position:absolute; inset:0; transform-style:preserve-3d; transition:transform .5s ease; }
+  .card-face{
+    position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    backface-visibility:hidden; border:1px solid var(--line); background:var(--card);
+    border-radius:18px; padding:22px; text-align:center; box-shadow:0 8px 24px rgba(0,0,0,.18);
+  }
+  .card-face h2{margin:0 0 10px; font-size:clamp(18px,3vw,24px)}
+  .card-face p{margin:8px 0; font-size:clamp(16px,2.6vw,18px); line-height:1.6}
+  .face-back{transform:rotateY(180deg)}
+  .flipped .card-inner{transform:rotateY(180deg)}
+  .kicker{font-weight:800; color:var(--muted); letter-spacing:.3px; text-transform:uppercase; font-size:12px}
+  .toolbar{display:flex;flex-wrap:wrap; gap:8px; justify-content:center}
+  .pill{padding:6px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); font-size:12px}
+  .hint{font-size:13px; color:var(--muted); text-align:center}
+  .footer{display:flex; gap:8px; justify-content:center}
+  .footer button{min-width:110px}
+  .tag{display:inline-block; padding:4px 10px; border-radius:999px; background:var(--line); color:var(--muted); font-size:12px; margin-top:6px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+  .chip{border:1px solid var(--line); border-radius:999px; padding:4px 10px; font-size:12px; color:var(--muted)}
+  .moodle-note{font-size:13px; color:var(--muted); margin-top:8px}
+  footer.site{margin-top:14px; display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+  footer .right a{color:var(--muted);text-decoration:none;border-bottom:1px dashed var(--muted)}
+</style>
+</head>
+<body>
+  <div class="wrap" role="application" aria-label="UMST · EasyLearn Clinical Anatomy Flashcards">
+    <header class="hero">
+      <div class="logo" aria-hidden="true">UE</div>
+      <div class="brand">
+        <div class="kicker">UMST · EasyLearn</div>
+        <h1>Clinical Anatomy</h1>
+        <p><span class="tagline">Learn Smart. Achieve More.</span> &nbsp;•&nbsp; Abdomen · Thorax · Pelvis</p>
+      </div>
+      <div class="controls" role="region" aria-label="Filters and actions">
+        <select id="section">
+          <option value="all">All sections</option>
+          <option value="Abdomen">Abdomen</option>
+          <option value="Thorax">Thorax</option>
+          <option value="Pelvis">Pelvis</option>
+        </select>
+        <select id="category">
+          <option value="all">All categories</option>
+        </select>
+        <button id="shuffle" class="btn-ghost" aria-pressed="false" title="Shuffle order (S)">Shuffle</button>
+        <button id="reset" class="btn-ghost" title="Reset progress">Reset</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="stats" aria-live="polite">
+        <div id="counter">Card 1 of 1</div>
+        <div class="bar" aria-hidden="true"><span id="bar"></span></div>
+        <div id="mastery" class="pill" title="Cards you marked as mastered">Mastered: 0</div>
+      </div>
+
+      <div id="card" class="card" tabindex="0" aria-roledescription="flip card" aria-live="polite">
+        <div class="card-inner">
+          <section class="card-face face-front" aria-label="Question side">
+            <div class="tag" id="tag-front">Section · Category</div>
+            <h2 id="q">Question</h2>
+            <p class="hint">Click the card or press Space/Enter to flip</p>
+            <div class="chips"><span class="chip" id="chip-sec">Section</span><span class="chip" id="chip-cat">Category</span></div>
+          </section>
+          <section class="card-face face-back" aria-label="Answer side">
+            <div class="tag" id="tag-back">Section · Category</div>
+            <h2>Answer</h2>
+            <p id="a">Answer goes here.</p>
+          </section>
+        </div>
+      </div>
+
+      <div class="toolbar" role="group" aria-label="Marking">
+        <button id="markGood" class="btn-primary" title="Mark as mastered (G)">Mastered ✓</button>
+        <button id="markAgain" class="btn-ghost" title="Mark to review again (A)">Review Again ↺</button>
+      </div>
+
+      <div class="footer" role="group" aria-label="Navigation">
+        <button id="prev" class="btn-ghost" title="Previous (←)">Prev</button>
+        <button id="flip" class="btn-primary" title="Flip (Space)">Flip</button>
+        <button id="next" class="btn-ghost" title="Next (→)">Next</button>
+      </div>
+      <p class="hint">Shortcuts: ←/→ to navigate, Space to flip, G to mark mastered, A to mark review, S to shuffle.</p>
+      <p class="moodle-note" style="color:#16a34a;"><strong>Dear Batch 28–30:</strong> Don't worry, life gets easier. Make your family proud of you.</p>
+    </div>
+
+    <footer class="site">
+      <div>© <span id="year"></span> UMST · EasyLearn — Clinical Anatomy Flashcards</div>
+      <div class="right">Designed for fast review & mastery tracking</div>
+    </footer>
+  </div>
+
+<script>
+  // ---------------- Data: Abdomen + Thorax + Pelvis ----------------
+  const CARDS = [
+    // ===== Abdomen =====
+    {sec:"Abdomen", cat:"General Abdominal Concepts", q:"A patient presents with severe pain in the right lower quadrant. What is the most likely surgical emergency to consider?", a:"<strong>Appendicitis.</strong> The appendix is located in this quadrant, and its inflammation typically causes pain to localize here."},
+    {sec:"Abdomen", cat:"General Abdominal Concepts", q:"A patient complains of pain in the epigastric region. Which organs should you be thinking about?", a:"<strong>Stomach, duodenum, or pancreas.</strong> Pain in this area is often related to conditions like pancreatitis or peptic ulcer disease."},
+    {sec:"Abdomen", cat:"General Abdominal Concepts", q:"What is the clinical sign of peritonitis, and what does it tell you about the abdominal wall muscles?", a:"<strong>Rebound tenderness and guarding.</strong> These are involuntary tensing of the abdominal muscles, a protective reflex to parietal peritoneum irritation."},
+    {sec:"Abdomen", cat:"Organ-Specific Correlations", q:"A patient with a history of liver disease develops distended veins on the abdomen radiating from the umbilicus. What is this sign and what does it indicate?", a:"<strong>Caput medusae.</strong> A sign of severe portal hypertension with portosystemic collateral flow."},
+    {sec:"Abdomen", cat:"Organ-Specific Correlations", q:"During a cholecystectomy, which landmark helps locate the cystic artery?", a:"<strong>Calot's triangle</strong> (cystic duct, common hepatic duct, inferior liver border)."},
+    {sec:"Abdomen", cat:"Organ-Specific Correlations", q:"Severe flank pain radiating to the groin most likely indicates what, and why does the pain follow that path?", a:"<strong>Ureteric stone.</strong> Pain tracks along the ureter as the stone passes, activating segmental afferents."},
+    {sec:"Abdomen", cat:"Organ-Specific Correlations", q:"Why would a ruptured spleen cause pain referred to the left shoulder?", a:"<strong>Kehr's sign.</strong> Diaphragm irritation (phrenic nerve C3–C5) is perceived at the shoulder (same dermatomes)."},
+    {sec:"Abdomen", cat:"Organ-Specific Correlations", q:"Deep 'boring' epigastric pain radiating to the back suggests involvement of which organ?", a:"<strong>Pancreas.</strong> Pancreatitis pain reflects its retroperitoneal position and celiac plexus proximity."},
+    {sec:"Abdomen", cat:"Organ-Specific Correlations", q:"Differentiate direct vs indirect inguinal hernia anatomically.", a:"<strong>Direct:</strong> through Hesselbach's triangle, <em>medial</em> to inferior epigastric vessels. <br><strong>Indirect:</strong> via deep ring, <em>lateral</em> to the vessels."},
+
+    // ===== Thorax =====
+    {sec:"Thorax", cat:"Thoracic Wall & Pleural Cavity", q:"Chest stab wound with air in pleural cavity and lung collapse is called?", a:"<strong>Pneumothorax.</strong> Demonstrates the role of negative intrapleural pressure in lung inflation."},
+    {sec:"Thorax", cat:"Thoracic Wall & Pleural Cavity", q:"No breath sounds on one side and tracheal deviation away from the collapsed lung suggests what?", a:"<strong>Tension pneumothorax.</strong> Trapped air increases pressure and shifts the mediastinum—life-threatening emergency."},
+    {sec:"Thorax", cat:"Thoracic Wall & Pleural Cavity", q:"Clinical significance of the intercostal neurovascular bundle?", a:"Runs in the <strong>costal groove</strong> (VAN) on inferior rib border; insert needles just <em>superior</em> to avoid injury."},
+    {sec:"Thorax", cat:"Heart & Mediastinum", q:"Fluid in pericardial sac compresses heart with hypotension. Diagnosis and treatment?", a:"<strong>Cardiac tamponade</strong>; treat with <strong>pericardiocentesis</strong>."},
+    {sec:"Thorax", cat:"Heart & Mediastinum", q:"Best chest wall site to hear the aortic valve?", a:"<strong>Right 2nd intercostal space</strong> next to the sternum."},
+    {sec:"Thorax", cat:"Heart & Mediastinum", q:"Why is the recurrent laryngeal nerve at risk in thyroid/aortic arch surgery?", a:"Loops under the <strong>aortic arch (left)</strong> and <strong>subclavian artery (right)</strong>, ascends beside trachea/esophagus—injury → hoarseness/voice loss."},
+    {sec:"Thorax", cat:"Heart & Mediastinum", q:"Basis for left arm pain with cardiac ischemia?", a:"Visceral afferents from heart enter cord at <strong>T1–T4</strong>, overlapping with medial left arm somatics → <em>referred pain</em>."},
+    {sec:"Thorax", cat:"Major Blood Vessels & Nerves", q:"Why is the 'aortic knuckle' on CXR important?", a:"Normal arch shadow; enlargement suggests <strong>thoracic aortic aneurysm</strong>."},
+    {sec:"Thorax", cat:"Major Blood Vessels & Nerves", q:"Pancoast tumor compresses sympathetic chain and nearby nerve; syndrome and signs?", a:"<strong>Horner's syndrome</strong>: ptosis, miosis, anhidrosis (ipsilateral)."},
+    {sec:"Thorax", cat:"Major Blood Vessels & Nerves", q:"Clinical significance of the phrenic nerve (C3–C5)?", a:"Sole motor supply to <strong>diaphragm</strong>; injury → hemidiaphragm paralysis and raised dome on CXR."},
+    {sec:"Thorax", cat:"Bronchi & Lungs", q:"Foreign body aspiration more likely lodges in which bronchus and why?", a:"<strong>Right main bronchus</strong> is wider, shorter, more vertical—more direct path."},
+    {sec:"Thorax", cat:"Bronchi & Lungs", q:"Why is the inferior pleural reflection clinically important?", a:"Pleural cavity descends below lung; low posterior/subcostal wounds may enter pleural space despite apparent lung border."},
+
+    // ===== Pelvis =====
+    {sec:"Pelvis", cat:"General Pelvic Anatomy & Boundaries", q:"Sacral fracture with buttock numbness—most likely plexus injured?", a:"<strong>Sacral plexus (L4–S4)</strong>."},
+    {sec:"Pelvis", cat:"General Pelvic Anatomy & Boundaries", q:"Why is the perineum clinically significant in both sexes?", a:"Contains external genitalia and urogenital/anal openings; site of episiotomy and common for fistulas/abscesses."},
+    {sec:"Pelvis", cat:"Male Pelvis & Genitalia", q:"Clinical significance of prostate location relative to the urethra?", a:"Prostate encircles proximal urethra; <strong>BPH</strong> can compress it → weak stream, hesitancy."},
+    {sec:"Pelvis", cat:"Male Pelvis & Genitalia", q:"Dull scrotal pain with 'bag of worms' on exam indicates what and why?", a:"<strong>Varicocele</strong>—varicose enlargement of the <strong>pampiniform plexus</strong> in the spermatic cord."},
+    {sec:"Pelvis", cat:"Female Pelvis & Reproductive Organs", q:"Clinical significance of the rectouterine pouch (Pouch of Douglas)?", a:"Lowest peritoneal point in upright female; fluid/blood/pus accumulate here from pelvic pathology."},
+    {sec:"Pelvis", cat:"Female Pelvis & Reproductive Organs", q:"During hysterectomy, which structure risks ligation with the uterine artery?", a:"The <strong>ureter</strong> (\"water under the bridge\"): passes inferior to the uterine artery."},
+    {sec:"Pelvis", cat:"Female Pelvis & Reproductive Organs", q:"Importance of pelvic floor (levator ani) muscles?", a:"Support pelvic organs; damage/weakness → prolapse and urinary incontinence."},
+    {sec:"Pelvis", cat:"Pelvic Vasculature & Nerves", q:"Anatomical basis for 'wallet/piriformis' sciatica?", a:"<strong>Sciatic nerve</strong> exits via greater sciatic foramen, usually inferior to piriformis; compression → radiating pain."},
+    {sec:"Pelvis", cat:"Pelvic Vasculature & Nerves", q:"Arterial supply to rectum and anal canal?", a:"<strong>Superior</strong> (from IMA) and <strong>middle/inferior</strong> (from internal iliac) rectal arteries—important anastomoses."},
+    {sec:"Pelvis", cat:"Pudendal Nerve & Episiotomy", q:"Which nerve is targeted for perineal anesthesia and what is its course?", a:"<strong>Pudendal nerve</strong>: exits greater sciatic foramen, hooks ischial spine, enters lesser sciatic foramen, runs in pudendal (Alcock's) canal."},
+    {sec:"Pelvis", cat:"Pudendal Nerve & Episiotomy", q:"What structures are cut in an episiotomy and what is the aim?", a:"Skin, vaginal mucosa, and <strong>perineal body</strong> are incised to enlarge the vaginal opening during delivery."},
+    {sec:"Pelvis", cat:"Pudendal Nerve & Episiotomy", q:"Clinical significance of a pudendal nerve block?", a:"Provides local anesthesia to the perineum (e.g., episiotomy repair, forceps delivery)."},
+    {sec:"Pelvis", cat:"Pudendal Nerve & Episiotomy", q:"Why can pudendal nerve damage cause fecal or urinary incontinence?", a:"Innervates <strong>external anal</strong> and <strong>external urethral sphincters</strong>; damage → loss of voluntary control."}
+  ];
+
+  // ---------------- App Logic ----------------
+  const els = {
+    section: document.getElementById('section'),
+    category: document.getElementById('category'),
+    shuffle: document.getElementById('shuffle'),
+    reset: document.getElementById('reset'),
+    card: document.getElementById('card'),
+    q: document.getElementById('q'),
+    a: document.getElementById('a'),
+    tagF: document.getElementById('tag-front'),
+    tagB: document.getElementById('tag-back'),
+    chipSec: document.getElementById('chip-sec'),
+    chipCat: document.getElementById('chip-cat'),
+    counter: document.getElementById('counter'),
+    mastery: document.getElementById('mastery'),
+    bar: document.getElementById('bar'),
+    prev: document.getElementById('prev'),
+    next: document.getElementById('next'),
+    flip: document.getElementById('flip'),
+    markGood: document.getElementById('markGood'),
+    markAgain: document.getElementById('markAgain')
+  };
+
+  const storeKey = 'umst_easylearn_anatomy_flashcards_v1';
+  const store = {
+    load(){ try{ return JSON.parse(localStorage.getItem(storeKey)) || {}; }catch{ return {}; } },
+    save(data){ localStorage.setItem(storeKey, JSON.stringify(data)); }
+  };
+
+  let state = Object.assign({ idx:0, order:[], mastered:{}, section:"all", category:"all", shuffled:false }, store.load());
+
+  // Build category options based on section
+  function buildCategories(){
+    const cats = new Set();
+    CARDS.forEach(c => {
+      if (state.section === "all" || c.sec === state.section) cats.add(c.cat);
+    });
+    els.category.innerHTML = '<option value="all">All categories</option>';
+    Array.from(cats).sort().forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat; opt.textContent = cat;
+      els.category.appendChild(opt);
+    });
+    if (![...cats].includes(state.category)) state.category = "all";
+    els.category.value = state.category;
+  }
+
+  function activeList(){
+    const list = CARDS
+      .map((c,i)=>({i,c}))
+      .filter(x => (state.section==="all" ? true : x.c.sec===state.section))
+      .filter(x => (state.category==="all" ? true : x.c.cat===state.category));
+    const indices = list.map(x=>x.i);
+    if (!state.order.length) state.order = indices;
+    // keep order stable but only for active subset
+    const set = new Set(state.order);
+    const filtered = state.order.filter(i => indices.includes(i));
+    const missing = indices.filter(i => !set.has(i));
+    state.order = filtered.concat(missing);
+    return state.order.map(i => ({i, c: CARDS[i]}))
+                      .filter(x => (state.section==="all" ? true : x.c.sec===state.section))
+                      .filter(x => (state.category==="all" ? true : x.c.cat===state.category));
+  }
+
+  function clamp(n, min, max){ return Math.min(Math.max(n, min), max); }
+
+  function render(){
+    const list = activeList();
+    if (!list.length){
+      els.q.innerHTML = "No cards for this filter.";
+      els.a.textContent = "";
+      els.tagF.textContent = els.tagB.textContent = "";
+      els.chipSec.textContent = els.chipCat.textContent = "";
+      els.counter.textContent = "0 of 0";
+      els.bar.style.width = "0%";
+      return;
+    }
+    state.idx = clamp(state.idx, 0, list.length-1);
+    const { c } = list[state.idx];
+    els.q.innerHTML = c.q;
+    els.a.innerHTML = c.a;
+    els.tagF.textContent = `${c.sec} · ${c.cat}`;
+    els.tagB.textContent = `${c.sec} · ${c.cat}`;
+    els.chipSec.textContent = c.sec;
+    els.chipCat.textContent = c.cat;
+    els.counter.textContent = `Card ${state.idx+1} of ${list.length}`;
+    const masteredCount = Object.keys(state.mastered)
+                                .filter(k => list.some(x => String(x.i)===k)).length;
+    els.mastery.textContent = `Mastered: ${masteredCount}`;
+    els.bar.style.width = `${((state.idx+1)/list.length)*100}%`;
+    els.shuffle.setAttribute('aria-pressed', state.shuffled ? 'true' : 'false');
+    store.save(state);
+  }
+
+  function next(){ state.idx++; render(); }
+  function prev(){ state.idx--; render(); }
+  function flip(){ els.card.classList.toggle('flipped'); }
+  function ensureFront(){ els.card.classList.remove('flipped'); }
+
+  // Events
+  els.card.addEventListener('click', flip);
+  els.flip.addEventListener('click', flip);
+  els.next.addEventListener('click', ()=>{ ensureFront(); next(); });
+  els.prev.addEventListener('click', ()=>{ ensureFront(); prev(); });
+  els.section.addEventListener('change', (e)=>{
+    state.section = e.target.value; state.idx = 0; ensureFront(); buildCategories(); render();
+  });
+  els.category.addEventListener('change', (e)=>{
+    state.category = e.target.value; state.idx = 0; ensureFront(); render();
+  });
+  els.shuffle.addEventListener('click', ()=>{
+    const list = activeList();
+    const active = list.map(x=>x.i);
+    for (let i=active.length-1;i>0;i--){
+      const j = Math.floor(Math.random() * (i+1));
+      [active[i], active[j]] = [active[j], active[i]];
+    }
+    state.order = active;
+    state.idx = 0; state.shuffled = true;
+    ensureFront(); render();
+  });
+  els.reset.addEventListener('click', ()=>{
+    state = { idx:0, order:[], mastered:{}, section:"all", category:"all", shuffled:false };
+    buildCategories(); ensureFront(); render();
+  });
+  els.markGood.addEventListener('click', ()=>{
+    const list = activeList();
+    if (list.length){ state.mastered[String(list[state.idx].i)] = true; }
+    next();
+  });
+  els.markAgain.addEventListener('click', ()=>{
+    const list = activeList();
+    if (list.length){ delete state.mastered[String(list[state.idx].i)]; }
+    next();
+  });
+
+  // Keyboard shortcuts
+  window.addEventListener('keydown', (e)=>{
+    if (['ArrowRight','ArrowLeft',' '].includes(e.key)) e.preventDefault();
+    if (e.key==='ArrowRight'){ ensureFront(); next(); }
+    if (e.key==='ArrowLeft'){ ensureFront(); prev(); }
+    if (e.key===' ' || e.key==='Enter'){ flip(); }
+    if (e.key.toLowerCase()==='g'){ els.markGood.click(); }
+    if (e.key.toLowerCase()==='a'){ els.markAgain.click(); }
+    if (e.key.toLowerCase()==='s'){ els.shuffle.click(); }
+  });
+
+  // Init
+  (function init(){
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Restore filters
+    els.section.value = state.section || "all";
+    buildCategories();
+    render();
+  })();
+</script>
+</body>
+</html>
